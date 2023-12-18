@@ -1,3 +1,3 @@
 [submodule "lib/ced"]
 	path = lib/ced
-	url = https://github.com/tuttlem/ced
+	url = git@github.com:tuttlem/ced.git
