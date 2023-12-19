@@ -16,7 +16,7 @@ void echo_client_handler(ced_server_client_p client) {
 
     if (buffer != NULL) {
         if (ced_buffer_cmp_str(buffer, "exit") == 0) {
-            client->server->running = 0;
+            ced_server_stop(client->server);
         } else if (ced_buffer_cmp_str(buffer, "query") == 0) {
             char res[1024];
             sprintf(res, "Currently managing %d clients\n", client->server->clients->size);
@@ -45,7 +45,6 @@ int main() {
         return EXIT_FAILURE;
     }
 
-    ced_server_stop(server);
     ced_server_free(server);
 
     return EXIT_SUCCESS;
